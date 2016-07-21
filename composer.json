@@ -1,0 +1,34 @@
+{
+    "name": "songlipeng2003/sf-bsp-sdk",
+    "description": "Shunfeng OMS SDK",
+    "keywords": ["shufeng", "bsp", "sdk"],
+    "homepage": "https://github.com/songlipeng2003/sf-bsp-sdk",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Thinking Song",
+            "email": "songlipeng2003@gmail.com",
+            "homepage": "http://wmstars.com",
+            "role": "Founder and project lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/songlipeng2003/sf-bsp-sdk/issues?state=open",
+        "wiki": "https://github.com/songlipeng2003/sf-bsp-sdk/wiki/",
+        "source": "https://github.com/songlipeng2003/sf-bsp-sdk"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": ">=6.0.0",
+        "servo/fluidxml": "^1.20"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {"songlipeng2003\\sf\\bsp\\": "src"}
+    }
+}
