@@ -1,6 +1,6 @@
 {
     "name": "songlipeng2003/sf-bsp-sdk",
-    "description": "Shunfeng OMS SDK",
+    "description": "Shunfeng BSP SDK",
     "keywords": ["shufeng", "bsp", "sdk"],
     "homepage": "https://github.com/songlipeng2003/sf-bsp-sdk",
     "type": "library",
