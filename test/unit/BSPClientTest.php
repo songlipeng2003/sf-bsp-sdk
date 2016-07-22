@@ -4,13 +4,21 @@ use PHPUnit\Framework\TestCase;
 
 class BSPClientTest extends PHPUnit_Framework_TestCase
 {
-    public function testApi()
+    protected $client;
+
+    public function setUp()
     {
         $client = new BSPClient();
         $client->url = 'http://218.17.248.244:11080/bsp-oisp/sfexpressService';
         $client->accessCode = 'BSPdevelop';
         $client->checkWord = 'j8DzkIFgmlomPt0aLuwU';
         $client->debug = true;
+
+        $this->client = $client;
+    }
+
+    public function testOrderService()
+    {
         $request = [
             'Order' => [
                 '@orderid' => rand(100000, 999999),
@@ -35,8 +43,26 @@ class BSPClientTest extends PHPUnit_Framework_TestCase
                 ]
             ]
         ];
-        $result = $client->api('OrderService', $request);
+        $result = $this->client->api('OrderService', $request);
         $this->assertEquals($result['Head'], 'OK');
-        $this->assertContains($result['Body'], 'OrderResponse');
+        $this->assertArrayHasKey('OrderResponse', $result['Body']);
+        $this->assertArrayHasKey('@attributes', $result['Body']['OrderResponse']);
+
+        return $result['Body']['OrderResponse']['@attributes']['mailno'];
+    }
+
+    public function testRouteService()
+    {
+        $mailno = $this->testOrderService();
+
+        $request = [
+            'RouteRequest' =>[
+                '@tracking_number' => $mailno
+            ]
+        ];
+
+        $result = $this->client->api('RouteService', $request);
+
+        $this->assertEquals($result['Head'], 'OK');
     }
 }
