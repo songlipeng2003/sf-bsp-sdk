@@ -29,14 +29,16 @@ class BSPClient
     public function api($service, $data)
     {
         $request = [
-            '@service' => $service,
-            '@lang' => 'zh-CN',
+            '@attributes' => [
+                'service' => $service,
+                'lang' => 'zh-CN',
+            ],
             'Head' => $this->accessCode,
             'Body' => $data
         ];
 
-        $xml = new FluidXml('Request');
-        $xml->add($request);
+        $xml = Array2XML::createXML('Request', $request);
+        $xml = $xml->saveXML();
 
         if($this->debug){
             echo 'request:' . $xml;
