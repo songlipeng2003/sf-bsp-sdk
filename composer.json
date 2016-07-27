@@ -1,7 +1,7 @@
 {
     "name": "songlipeng2003/sf-bsp-sdk",
     "description": "Shunfeng BSP SDK",
-    "keywords": ["shufeng", "bsp", "sdk"],
+    "keywords": ["shunfeng", "bsp", "sdk"],
     "homepage": "https://github.com/songlipeng2003/sf-bsp-sdk",
     "type": "library",
     "license": "BSD-3-Clause",
