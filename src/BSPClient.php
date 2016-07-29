@@ -3,12 +3,6 @@ namespace songlipeng2003\sf\bsp;
 
 use GuzzleHttp\Client;
 
-use FluidXml\FluidXml;
-
-use function FluidXml\fluidxml;
-use function FluidXml\fluidns;
-use function FluidXml\fluidify;
-
 class BSPClient
 {
     public $accessCode;
@@ -19,7 +13,7 @@ class BSPClient
 
     public $debug = false;
 
-    public function OMSClient($accessCode, $checkWord, $url)
+    public function BSPClient($url=null, $accessCode=null, $checkWord=null)
     {
         $this->accessCode = $accessCode;
         $this->checkWord = $checkWord;
